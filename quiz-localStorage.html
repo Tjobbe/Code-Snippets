@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+
+<style type="text/css">
+
+body{
+	text-align: center;
+}
+
+#questions{
+	margin: 0 auto;
+	width: 802px;
+	height: 602px;
+}
+
+/*look for any class that has the word lside in it*/
+[class*="slide"]{
+	padding: 20px;
+	background: #666;
+	width: 760px;
+	height: 560px;
+	border: 1px dashed #333;
+}
+[class*="slide"]:nth-child(odd){
+	background: #999;
+}
+
+b{
+	position: absolute;
+	top: 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+	<div id="questions">
+		<div class="slide1">
+			<h1>What is h2o?</h1>
+			<ul>
+				<li>A Pencil</li>
+				<li>Liquid water</li>
+				<li>A mobile phone network</li>
+				<li>Paper</li>
+			</ul>
+		</div>
+		<div class="slide2">
+			<h1>What is 2 + 2?</h1>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<div class="slide3">
+			<h1>What is a whale?</h1>
+			<ul>
+				<li>A mammal</li>
+				<li>A fish</li>
+				<li>A bird</li>
+				<li>A country</li>
+			</ul>
+		</div>
+		<div class="slide4">
+			<h1>What phone do you prefer?</h1>
+			<ul>
+				<li>iPhone 4s</li>
+				<li>iPhone 5</li>
+			</ul>
+		</div>
+		<div class="slide5">
+			<h1>What is 5 + 5?</h1>
+			<ul>
+				<li>10</li>
+				<li>7</li>
+			</ul>
+		</div>
+		<div class="slide6">
+			<h1>What is the capital city of England?</h1>
+			<ul>
+				<li>London</li>
+				<li>Staines</li>
+				<li>Bognor Regis</li>
+				<li>Luton</li>
+			</ul>
+		</div>
+		<div class="slide7">
+			<h1>What colour is a red phone box?</h1>
+			<ul>
+				<li>Blue</li>
+				<li>Red</li>
+				<li>Pink</li>
+				<li>Mauve</li>
+			</ul>
+		</div>
+	</div>
+	<b></b>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	/*
+	//
+	//	quiz storer
+	//	Author: Tjobbe Andrews
+	//  v1.0, 13/02/2013
+	//	- keeps a record in localStorage of the answers you chose
+	//
+	*/
+
+
+$("li").click(function(){
+	var answer = $(this).html();
+	var question = $(this).parent().parent().find('h1').html();
+	localStorage.setItem(question, answer);
+	$("b").html(localStorage.getItem(question));
+});
+
+});
+</script>
+
+</body>
+</html>
